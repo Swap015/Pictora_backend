@@ -8,20 +8,37 @@ const photoSchema = new mongoose.Schema({
         ref: "User",
         required: true
     },
-    title: { type: String },
+    title: {
+        type: String,
+        trim: true
+    },
     imageUrl: {
         type: String,
         required: true
     },
+    editedUrl: {
+        type: String
+    },
     imageId: {
         type: String,
         required: true
+    },
+    isEdited: {
+        type: Boolean,
+        default: false
     },
 
     width: { type: Number },
     height: { type: Number },
     format: { type: String },
     size: { type: Number },
+    canvasData: {
+        type: Object,
+        default: null
+    }
+
+
+
 
 },
     { timestamps: true }

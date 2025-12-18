@@ -1,5 +1,6 @@
 import User from '../models/User.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
+import ms from 'ms';
 import { generateAccessToken, generateRefreshToken } from '../utils/tokenUtil.mjs';
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -113,7 +114,7 @@ export const getUser = async (req, res) => {
         res.status(200).json({ user });
     }
     catch (err) {
-        res.status(400).json({ msg: "Failed to fetch user" });
+        res.status(500).json({ msg: "Failed to fetch user" });
     }
 };
 
@@ -140,6 +141,6 @@ export const logoutUser = async (req, res) => {
         res.status(200).json({ msg: "Logged Out" });
     }
     catch (err) {
-        res.status(400).json({ msg: "Logout failed" });
+        res.status(404).json({ msg: "User not found" });
     }
 };
