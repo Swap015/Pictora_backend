@@ -10,7 +10,7 @@ router.post('/login', loginUser);
 router.get('/getUser/:userId', verifyToken, getUser);
 router.post('/logout', verifyToken, logoutUser);
 
-//refresh access token
+
 router.post('/refresh', refreshAccessToken);
 
 

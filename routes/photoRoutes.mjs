@@ -4,10 +4,11 @@ import { getMyPhotos, getSinglePhoto, saveEditedPhoto, uploadPhotoMeta } from ".
 
 const router = express.Router();
 
-router.post("/", verifyToken, uploadPhotoMeta);
-router.get("/my", verifyToken, getMyPhotos);
+router.post("/uploadPic", verifyToken, uploadPhotoMeta);
+router.get("/getMyPics", verifyToken, getMyPhotos);
 router.get("/:id", verifyToken, getSinglePhoto);
-router.put("/:id", verifyToken, saveEditedPhoto); router.delete("/:id", protect, deletePhoto);
+router.put("/save/:id", verifyToken, saveEditedPhoto);
+router.delete("deletePic/:id", protect, deletePhoto);
 
 
 export default router;
