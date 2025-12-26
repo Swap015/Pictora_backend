@@ -1,5 +1,6 @@
 import express from 'express';
 import connectDB from './configs/db.mjs';
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
